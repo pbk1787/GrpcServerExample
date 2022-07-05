@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	implementation 'link.jfire:simplerpc:1.0'
+	implementation 'io.github.HuChen-dot:simplerpc-spring-boot-starter:1.6'
+	implementation 'net.devh:grpc-server-spring-boot-starter:2.13.1.RELEASE'
+	implementation files('src/main/proto/lib-1.0-SNAPSHOT.jar')
+	
+	implementation("log4j:log4j:1.2.17")
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
